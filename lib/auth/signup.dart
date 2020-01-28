@@ -131,7 +131,7 @@ class _SignUpState extends State<SignUp> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/home');
+                        Navigator.of(context).pushNamed('/journal-list');
                       },
                       child: Row(
                         children: <Widget>[
