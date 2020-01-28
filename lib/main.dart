@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foreign_journal/screens/detail_screen.dart';
 import './screens/journal_list.dart';
 import 'package:foreign_journal/screens/home_screen.dart';
 import './auth/login.dart';
@@ -18,11 +19,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => JournalList(),
+        '/': (context) => DetailScreen(),
         '/home': (context) => HomeScreen(),
         //'signup': (context) => SignUp(),
         '/login': (context) => Login(),
         '/journal-list': (context) => JournalList(),
+        '/detail-screen': (context) => DetailScreen(),
       },
     );
   }
