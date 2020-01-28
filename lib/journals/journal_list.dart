@@ -26,10 +26,10 @@ class _JournalListState extends State<JournalList> {
                       children: <Widget>[
                         Container(
                           width: 200,
-                          height: 250,
+                          height: 240,
                           margin: EdgeInsets.only(left: 100),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                               image: AssetImage(
                                 journalData[index].imageUrl,
@@ -39,10 +39,20 @@ class _JournalListState extends State<JournalList> {
                           ),
                         ),
                         Positioned(
+                          top: 30.0,
+                          left: 0.0,
                           child: Container(
+                            width: 150,
+                            height: 190,
                             decoration: BoxDecoration(
                               color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 5.0,
+                                    offset: Offset(0.0, 0.0)),
+                              ],
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
@@ -57,7 +67,7 @@ class _JournalListState extends State<JournalList> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 40.0,
+                                    height: 30.0,
                                   ),
                                   Text(journalData[index].date)
                                 ],
