@@ -61,23 +61,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Icon(Icons.cancel),
                   mini: true,
                   backgroundColor: Colors.green,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_isListening)
+                      _speechRecognition.cancel().then(
+                            (result) => setState(() {
+                              _isListening = result;
+                              resultText = "";
+                            }),
+                          );
+                  },
                 ),
                 FloatingActionButton(
                   child: Icon(Icons.book),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_isAvailable && !_isListening)
+                      _speechRecognition
+                          .listen(locale: "en_US")
+                          .then((result) => print('$result'));
+                  },
                 ),
                 FloatingActionButton(
-                  child: Icon(Icons.stop),
+                  child: Icon(Icons.save),
                   mini: true,
                   backgroundColor: Colors.deepOrange,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_isListening)
+                      _speechRecognition.stop().then(
+                          (result) => setState(() => _isListening = result));
+                  },
                 ),
               ],
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
-              height: MediaQuery.of(context).size.height * 0.02,
+              //height: MediaQuery.of(context).size.height * 0.02,
               padding: EdgeInsets.symmetric(
                 vertical: 8.0,
                 horizontal: 12.0,
