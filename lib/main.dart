@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foreign_journal/screens/home_screen.dart';
 import './auth/login.dart';
+import './auth/signup.dart';
 // import './screens/home_screen.dart';
 
 void main() => runApp(MyApp());
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => SignUp(),
+        '/home': (context) => HomeScreen(),
+        //'signup': (context) => SignUp(),
+        '/login': (context) => Login(),
       },
     );
   }

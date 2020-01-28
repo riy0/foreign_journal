@@ -1,22 +1,22 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
-  TapGestureRecognizer _signUpTapRecognizer;
+class _SignUpState extends State<SignUp> {
+  TapGestureRecognizer _loginTapRecognizer;
 
   @override
   void initState() {
     super.initState();
-    _signUpTapRecognizer = TapGestureRecognizer()..onTap = _handleSignInTap;
+    _loginTapRecognizer = TapGestureRecognizer()..onTap = _handleLoginTap;
   }
 
-  _handleSignInTap() {
-    Navigator.of(context).pushNamed('/signup');
+  _handleLoginTap() {
+    Navigator.of(context).pushNamed('/login');
   }
 
   @override
@@ -73,6 +73,20 @@ class _LoginState extends State<Login> {
                   ),
                   Container(
                     alignment: Alignment.topLeft,
+                    child: Text('User Name'),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20.0),
+                    child: TextFormField(
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                          hintText: 'Input your name',
+                          suffixIcon: Icon(Icons.person_outline)),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
                     child: Text('Email'),
                   ),
                   Container(
@@ -117,9 +131,7 @@ class _LoginState extends State<Login> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/signup');
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            '/home', (Route<dynamic> route) => false);
+                        Navigator.of(context).pushNamed('/home');
                       },
                       child: Row(
                         children: <Widget>[
@@ -128,7 +140,7 @@ class _LoginState extends State<Login> {
                               alignment: Alignment.center,
                               margin: EdgeInsets.only(left: 40.0),
                               child: Text(
-                                'Login',
+                                'Create Account',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18.0),
                               ),
@@ -155,9 +167,9 @@ class _LoginState extends State<Login> {
                             style: Theme.of(context).textTheme.body1,
                             children: [
                           TextSpan(
-                              text: 'Sign Up',
+                              text: 'Log in',
                               style: TextStyle(color: Colors.black54),
-                              recognizer: _signUpTapRecognizer),
+                              recognizer: _loginTapRecognizer),
                         ])),
                   ),
                 ],
@@ -171,7 +183,7 @@ class _LoginState extends State<Login> {
 
   @override
   void dispose() {
-    _signUpTapRecognizer.dispose();
+    _loginTapRecognizer.dispose();
     super.dispose();
   }
 }
