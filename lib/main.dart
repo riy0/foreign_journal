@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:foreign_journal/screens/home_screen.dart';
 // import './screens/home_screen.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: CalendarCarousel(),
+      home: HomeScreen(),
     );
   }
 }
