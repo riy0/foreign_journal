@@ -84,6 +84,24 @@ class _JournalListState extends State<JournalList> {
           },
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            backgroundColor: Colors.black12,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('profile'),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => debugPrint('record diary'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
