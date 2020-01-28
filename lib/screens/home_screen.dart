@@ -58,22 +58,35 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 FloatingActionButton(
+                  child: Icon(Icons.cancel),
                   mini: true,
-                  backgroundColor: Colors.lime,
+                  backgroundColor: Colors.green,
                   onPressed: () {},
                 ),
                 FloatingActionButton(
+                  child: Icon(Icons.book),
                   onPressed: () {},
                 ),
                 FloatingActionButton(
+                  child: Icon(Icons.stop),
                   mini: true,
-                  backgroundColor: Colors.orange,
+                  backgroundColor: Colors.deepOrange,
                   onPressed: () {},
                 ),
               ],
             ),
             Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.02,
+              padding: EdgeInsets.symmetric(
+                vertical: 8.0,
+                horizontal: 12.0,
+              ),
               child: Text(resultText),
+              decoration: BoxDecoration(
+                color: Colors.orange[100],
+                borderRadius: BorderRadius.circular(20),
+              ),
             )
           ],
         ),
