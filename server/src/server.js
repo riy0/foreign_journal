@@ -1,32 +1,17 @@
-const express = require("express");
-const next = require("next");
+import express from "express";
+import bodyParser from "body-parser";
+import router from "./router/index";
 
+const app = express();
 const port = parseInt(process.env.PORT, 10) || 3000;
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
 
-app.prepare().then(() => {
-  const server = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-  server.get("/a", (req, res) => {
-    return app.render(req, res, "/a", req.query);
+if (!module.parent) {
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
   });
+}
 
-  server.get("/b", (req, res) => {
-    return app.render(req, res, "/b", req.query);
-  });
-
-  server.get("/posts/:id", (req, res) => {
-    return app.render(req, res, "/posts", { id: req.params.id });
-  });
-
-  server.all("*", (req, res) => {
-    return handle(req, res);
-  });
-
-  server.listen(port, err => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`);
-  });
-});
+module.exports = app;
